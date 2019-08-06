@@ -1,0 +1,232 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* GENERAL LAYOUT */
+* {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.container {
+    padding: 1em;
+}
+
+/* HEADER, TITLES AND SUBTITLES */
+h1 {
+    font-size: 2.3em;
+    text-decoration: underline;
+}
+header p {
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.roulette__stepText {
+    font-size: 1.6em;
+    margin: 0.4em 0;
+}.roulette__stepText__subtitle {
+    font-size: 1.24em;
+    margin: 0.4em 0;    
+}
+.roulette__stepText__subtitle_4 {
+    font-size: 1.2em;
+}
+
+/* PAGE LAYOUT */
+.roulette {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0 0.5em;
+    grid-template-areas: "inputArea statsArea glossaryArea" "electionArea statsArea glossaryArea";
+    font-size: 15px;
+    text-align: center;
+}
+@media (max-width: 900px) {
+    .roulette {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "inputArea statsArea" "electionArea statsArea" "glossaryArea glossaryArea";
+    }
+}
+@media (max-width: 674px) {
+    .roulette {
+        display: block;
+        text-align: left;
+    }
+    .roulette>div {
+        margin: 0.5em 0 1.5em;
+    }
+    .roulette__buttons {
+        text-align: center;
+    }
+    .roulette__buttons h2 {
+        text-align: left;
+    }
+}
+.roulette__inputArea { grid-area: inputArea; }
+.roulette__buttons { grid-area: electionArea; }
+.roulette__results { grid-area: statsArea; text-align: left; }
+.roulette_glossary { grid-area: glossaryArea; text-align: left; }
+
+
+/* BUTTONS AREA */ 
+input.r-calc-bet {
+    color: #209e42;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+button {
+    display: inline-block;
+    border: none;
+    background-color: #797579;
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    max-width: 75px;
+    line-height: 1.25;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+@media (min-width: 769px) {
+    button {
+        font-size: 1em;
+        max-width: inherit;
+    }
+}
+button.red {
+    background: #ec0600;
+}
+
+button.black {
+    background: #1f1f1f;
+}
+
+button.blue {
+    background: #3f7ac6;
+}
+
+button.green {
+    background: #567717;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* STATS */
+.roulette-calc .rboe,
+.roulette-calc .twelve,
+.roulette-calc .one,
+.roulette-calc .two,
+.roulette-calc .three,
+.roulette-calc .four,
+.roulette-calc .six {
+    display: none;
+}
+.r-calc-total span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.roulette span {
+    vertical-align: middle;
+    display: inline-block;
+}
+.roulette-calc #total {
+    color: #ff0600;
+}
+.roulette-calc #profit {
+    color: #77af0d;
+    font-size: 18px;
+}
+/*  TABLAS  */
+table.r-calc-table {
+    text-align: center;
+}
+table.r-calc-table tr td {
+    padding: 0;
+}
+table.r-calc-table td,
+table.r-calc-table th {
+    border: 0;
+}
+.roulette span.hide-calc {
+    display: none;
+    margin-bottom: 0;
+    color: #ff5511;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.roulette #bet-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    color: #1b7916;
+    font-weight: bold;
+}
+#betType {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+.roulette__results__stats p {
+    margin: 0.75em 0;
+}
+.calcExpected p {
+    margin: 0.5em 0;
+}
+
+.roulette_glossary {
+    padding-bottom: 1em;
+}
+
+.roulette_glossary p {
+    font-size: 0.9em;
+    margin: 6px 0;
+}

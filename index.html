@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculador de Ruleta</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculador de Ruleta</h1>
+            <p>
+                Introduce la cantidad a apostar, elige el tipo de apuesta, y podrás comprobar que probabilidad de ganar o perder tienes antes de arriesgarte.
+            </p>
+        </header>
+        <main>
+            <div class="roulette">       
+                <div class="roulette__inputArea">                        
+                    <h2 class="roulette__stepText">1.- Introduce una cantidad</h2>
+                    <input id="bet" class="r-calc-bet" min="1" name="a" type="number" value="" placeholder="cantidad">
+                </div>
+                <div class="roulette__buttons">
+                    <h2 class="roulette__stepText">2.- Escoge tu apuesta</h2>
+                    <div class="roulette__buttons__row">
+                        <button class="rboe red" data-bet="rboe" id="r1">Rojo</button>
+                        <button class="rboe black" data-bet="rboe" id="r2">Negro</button>
+                        <button class="rboe blue" data-bet="rboe" id="r3">Impar</button>
+                        <button class="rboe blue" data-bet="rboe" id="r4">Par</button>
+                    </div>
+                    <div class="roulette__buttons__row">
+                        <button class="twelve green" data-bet="twelve" id="r5">1-12</button>
+                        <button class="twelve green" data-bet="twelve" id="r6">13-24</button>
+                        <button class="twelve green" data-bet="twelve" id="r7">25-36</button>
+                    </div>
+                    <div class="roulette__buttons__row">
+                        <button class="one" data-bet="one" id="r8">Straight</button>
+                        <button class="two" data-bet="two" id="r9">Split</button>
+                        <button class="three" data-bet="three" id="r10">Street</button>
+                        <button class="four" data-bet="four" id="r11">Square</button>
+                        <button class="six" data-bet="six" id="r12">Six Line</button>
+                    </div>                        
+                </div>
+                <div class="roulette__results roulette-calc">
+                    <h2 class="roulette__stepText">3.- Comprueba las estadísticas</h2>
+                    <div class="roulette__results__stats">
+                        <h3 class="roulette__stepText__subtitle">Probabilidades</h3>                    <p>
+                            Has apostado a <b><span id="betType">...</span></b> una cantidad de <span id="bet-text">...</span>
+                        </p>
+                        <table class="r-calc-table">
+                            <tbody>
+                                <tr>
+                                    <td>Factor de Éxito =</td>
+                                    <td style="border-bottom: solid 1px black;">
+                                        <span class="hide-calc rboe-calc">18</span>
+                                        <span class="hide-calc twelve-calc">12</span>
+                                        <span class="hide-calc one-calc">1</span>
+                                        <span class="hide-calc two-calc">2</span>
+                                        <span class="hide-calc three-calc">3</span>
+                                        <span class="hide-calc four-calc">4</span>
+                                        <span class="hide-calc six-calc">6</span> 
+                                    <span> Números </span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>37 Números totales</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Probabilidad de Éxito = Factor de Éxito x 100%</p>
+                        <table class="r-calc-table">
+                            <tbody>
+                                <tr>
+                                    <td>Probabilidad de Éxito = </td>
+                                    <td style="border-bottom: solid 1px black;">
+                                        <span class="hide-calc rboe-calc">18</span>
+                                        <span class="hide-calc twelve-calc">12</span>
+                                        <span class="hide-calc one-calc">1</span>
+                                        <span class="hide-calc two-calc">2</span>
+                                        <span class="hide-calc three-calc">3</span>
+                                        <span class="hide-calc four-calc">4</span>
+                                        <span class="hide-calc six-calc">6</span>
+                                    </td>
+                                    <td> x 100 = </td>
+                                    <td>
+                                        <span class="hide-calc rboe-calc">48.64%</span>
+                                        <span class="hide-calc twelve-calc">32.43%</span>
+                                        <span class="hide-calc one-calc">2.70%</span>
+                                        <span class="hide-calc two-calc">5.41%</span>
+                                        <span class="hide-calc three-calc">8.11%</span>
+                                        <span class="hide-calc four-calc">10.81%</span>
+                                        <span class="hide-calc six-calc">16.2%</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>37</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="r-calc-total calcExpected">
+                        <h3 class="roulette__stepText__subtitle">Rendimiento Esperado</h3>
+                        <p><small>Rendimiento esperado de la apuesta = Apuesta * (Éxito % – (1 – Éxito %))</small></p>
+                        <p>Porcentage de Éxito = <b><span id="success"></span></b>%</p>
+                        <p>Ganarías = <b><span id="profit"></span></b></p>
+                        <p>Rendimiento esperado de la apuesta = <b><span id="total"></span></b></p>
+                    </div>
+                </div>
+                <div class="roulette_glossary">                        
+                    <h4 class="roulette__stepText__subtitle_4">Glosario:</h4>
+                    <p><b><i>Straight: </i></b> apuesta a un sólo número del 1 al 37</p>
+                    <p><b><i>Split: </i></b> apuesta a 2 números contiguos</p>
+                    <p><b><i>Street: </i></b> apuesta a 3 números de una fila transversal</p>
+                    <p><b><i>Square: </i></b> apuesta a 4 números que formen esquina</p>
+                    <p><b><i>Six Line: </i></b> Apuesta a 2 filas transversales</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html>
